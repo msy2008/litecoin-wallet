@@ -1,6 +1,7 @@
-# BITCOIN WALLET
+# LITECOIN WALLET
 
-Welcome to _Bitcoin Wallet_, a standalone Bitcoin payment app for your Android device!
+Welcome to _Litecoin Wallet_, a standalone Bitcoin payment app for your Android device!
+This wallet for Litecoin is a fork of bitcoin.
 
 This project contains several sub-projects:
 
@@ -26,8 +27,8 @@ and unpack it to `$ANDROID_HOME/`.
 Finally, the last preparative step is acquiring the source code. Again in your workspace, use:
 
     # first time only
-    git clone -b master https://github.com/bitcoin-wallet/bitcoin-wallet.git bitcoin-wallet
-    cd bitcoin-wallet
+    git clone -b master https://github.com/msy2008/litecoin-wallet.git litecoin-wallet
+    cd litecoin-wallet
 
 
 ### BUILDING
