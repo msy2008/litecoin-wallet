@@ -1,14 +1,15 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
         google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:7.2.2'
         //noinspection GradleDependency
         classpath 'net.sf.proguard:proguard-gradle:6.2.2'
-        classpath('fr.avianey.androidsvgdrawable:gradle-plugin:3.0.2') {
+        classpath('fr.avianey.androidsvgdrawable:gradle-plugin:3.1.1') {
             exclude group: 'xerces'
         }
     }
@@ -16,7 +17,29 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
         google()
+
+        def maven_url = findProperty('MAVEN_URL') ?: System.getenv("MAVEN_URL")
+        if (maven_url) {
+            maven {
+                credentials {
+                    username findProperty('MAVEN_USERNAME') ?: System.getenv("MAVEN_USERNAME")
+                    password findProperty('MAVEN_PASSWORD') ?: System.getenv("MAVEN_PASSWORD")                }
+                url maven_url
+            }
+        }
+        def github_actor = System.getenv("GITHUB_ACTOR")
+        if (github_actor) {
+            maven {
+                name = "GitHubPackages"
+                url = "https://maven.pkg.github.com/bitbandi/litecoinj"
+                credentials {
+                    username = github_actor
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
     }
 }
