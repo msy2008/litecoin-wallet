@@ -10,6 +10,6 @@
     <color name="fg_shortcut">#ffddaa77</color>
 
     <!-- app icon -->
-    <color name="appicon_gradient_start">#f9b949</color>
-    <color name="appicon_gradient_end">#f7931a</color>
+    <color name="appicon_gradient_start">#3e7bc1</color>
+    <color name="appicon_gradient_end">#345d9d</color>
 </resources>

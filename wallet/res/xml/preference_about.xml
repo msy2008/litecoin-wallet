@@ -6,7 +6,7 @@
         android:key="about_version"
         android:title="@string/about_version_title" />
     <Preference
-        android:summary="© 2011-2021, the Bitcoin Wallet developers"
+        android:summary="© 2009-2022, the Bitcoin Wallet developers\n© 2011-2022, the Litecoin Wallet developers"
         android:title="@string/about_copyright_title" />
     <Preference
         android:key="about_license"
@@ -18,11 +18,11 @@
     </Preference>
     <Preference
         android:key="about_source"
-        android:summary="https://github.com/bitcoin-wallet/bitcoin-wallet"
+        android:summary="https://github.com/msy2008/litecoin-wallet"
         android:title="@string/about_source_title">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/bitcoin-wallet/bitcoin-wallet" />
+            android:data="https://github.com/msy2008/litecoin-wallet" />
     </Preference>
     <Preference
         android:enabled="false"
@@ -39,22 +39,22 @@
     </Preference>
     <Preference
         android:key="about_twitter"
-        android:summary="\@bitcoin_wallet"
+        android:summary="\@msy2008"
         android:title="Twitter">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://twitter.com/bitcoin_wallet" />
+            android:data="https://twitter.com/msy2008" />
     </Preference>
 
     <PreferenceCategory
         android:title="@string/about_category_credits">
 
         <Preference
-            android:key="about_credits_bitcoinj"
-            android:summary="https://bitcoinj.org">
+            android:key="about_credits_litecoinj"
+            android:summary="https://github.com/msy2008/litecoinj">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://bitcoinj.org" />
+                android:data="https://github.com/msy2008/litecoinj" />
         </Preference>
         <Preference
             android:key="about_credits_zxing"
