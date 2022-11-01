@@ -1,6 +1,7 @@
 # LITECOIN WALLET
 
 Welcome to _Litecoin Wallet_, a standalone Bitcoin payment app for your Android device!
+
 This wallet for Litecoin is a fork of bitcoin.
 
 This project contains several sub-projects:
