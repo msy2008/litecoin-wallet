@@ -308,7 +308,7 @@ public class WalletTransactionsFragment extends Fragment implements Transactions
         } else if (itemId == R.id.wallet_transactions_context_browse) {
             final Uri blockExplorerUri = config.getBlockExplorer();
             log.info("Viewing transaction {} on {}", transactionId, blockExplorerUri);
-            activity.startExternalDocument(Uri.withAppendedPath(blockExplorerUri, "tx/" + transactionId.toString()));
+            activity.startExternalDocument(Uri.withAppendedPath(blockExplorerUri, "tx.dws?" + transactionId.toString()));
             return true;
         } else {
             return false;
@@ -327,10 +327,12 @@ public class WalletTransactionsFragment extends Fragment implements Transactions
         if (config.remindBackup())
             return TransactionsAdapter.WarningType.BACKUP;
 
+/*
         final int storageEncryptionStatus = devicePolicyManager.getStorageEncryptionStatus();
         if (storageEncryptionStatus == DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE
                 || storageEncryptionStatus == DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE_DEFAULT_KEY)
             return TransactionsAdapter.WarningType.STORAGE_ENCRYPTION;
+*/
 
         return null;
     }

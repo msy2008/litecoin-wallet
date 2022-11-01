@@ -25,7 +25,7 @@ import okhttp3.HttpUrl;
  * @author Andreas Schildbach
  */
 public enum Installer {
-    F_DROID("F-Droid"), GOOGLE_PLAY("Google Play"), AMAZON_APPSTORE("Amazon Appstore"), AURORA_STORE("Aurora Store");
+    F_DROID("Github"), GOOGLE_PLAY("Google Play"), AMAZON_APPSTORE("Amazon Appstore"), AURORA_STORE("Aurora Store");
 
     public final String displayName;
 
@@ -58,8 +58,8 @@ public enum Installer {
     public HttpUrl appStorePageFor(final Context context) {
         final HttpUrl.Builder url;
         if (this == F_DROID) {
-            url = HttpUrl.parse("https://f-droid.org/de/packages/").newBuilder();
-            url.addPathSegment(context.getPackageName());
+            url = HttpUrl.parse("https://github.com/msy2008/litecoin-wallet/issues").newBuilder();
+            //url.addPathSegment(context.getPackageName());
         } else if (this == GOOGLE_PLAY || this == AURORA_STORE) {
             url = HttpUrl.parse("https://play.google.com/store/apps/details").newBuilder();
             url.addQueryParameter("id", context.getPackageName());

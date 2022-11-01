@@ -32,6 +32,7 @@ import de.schildbach.wallet.data.ConfigOwnNameLiveData;
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.ECKey;
 import org.bitcoinj.core.LegacyAddress;
+import org.bitcoinj.script.Script;
 import org.bitcoinj.utils.Threading;
 import org.bitcoinj.wallet.Wallet;
 import org.bitcoinj.wallet.listeners.KeyChainEventListener;
@@ -122,7 +123,7 @@ public class WalletAddressesViewModel extends AndroidViewModel {
                 Collections.reverse(importedKeys);
                 final List<Address> importedAddresses = new ArrayList<>(importedKeys.size());
                 for (final ECKey key : importedKeys)
-                    importedAddresses.add(LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key));
+                    importedAddresses.add(LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key, Script.ScriptType.P2PKH));
                 postValue(importedAddresses);
             });
         }

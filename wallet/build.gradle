@@ -22,7 +22,7 @@ dependencies {
     implementation 'androidx.sqlite:sqlite:2.2.0'
     implementation "androidx.room:room-runtime:2.4.3"
     annotationProcessor "androidx.room:room-compiler:2.4.3"
-    implementation 'org.bitcoinj:bitcoinj-core:0.16.1'
+    implementation 'org.litecoinj:litecoinj-core:0.16'
     implementation 'com.google.guava:guava:31.1-android'
     implementation 'com.google.zxing:core:3.5.0'
     //noinspection GradleDependency
@@ -35,23 +35,36 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-ext {
-    archivesBaseName = 'bitcoin-wallet'
-}
-
 android {
-    compileSdkVersion 'android-31'
+    compileSdkVersion 'android-33'
     buildToolsVersion '33.0.0'
 
     defaultConfig {
-        applicationId 'de.schildbach'
+        minSdkVersion 24
+        targetSdkVersion 30
+        applicationId 'de.schildbach.wallet'
+        archivesBaseName = 'litecoin-wallet'
         dexOptions {
             preDexLibraries false
         }
     }
 
+    signingConfigs {
+        release {
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD
+                keyAlias RELEASE_KEY_ALIAS
+                keyPassword RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+
     buildTypes {
         all {
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled true
             shrinkResources false
             proguardFile 'proguard.cfg'
@@ -65,11 +78,11 @@ android {
     productFlavors {
         dev {
             dimension 'flavor'
-            applicationIdSuffix '.wallet_test'
+            applicationIdSuffix '.litecoin_test'
         }
         prod {
             dimension 'flavor'
-            applicationIdSuffix '.wallet'
+            applicationIdSuffix '.litecoin'
         }
     }
 
@@ -111,9 +124,9 @@ android {
         exclude 'kotlin/**'
         exclude 'org/bouncycastle/x509/*.properties'
         exclude 'okhttp3/internal/publicsuffix/*'
-        exclude 'org/bitcoinj/crypto/mnemonic/wordlist/english.txt'
-        exclude 'org/bitcoinj/crypto/cacerts'
-        exclude 'org.bitcoin.*.checkpoints.txt'
+        exclude 'org/litecoinj/crypto/mnemonic/wordlist/english.txt'
+        exclude 'org/litecoinj/crypto/cacerts'
+        exclude 'org.litecoin.*.checkpoints.txt'
     }
 }
 

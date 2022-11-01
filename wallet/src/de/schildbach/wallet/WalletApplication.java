@@ -110,7 +110,7 @@ public class WalletApplication extends Application {
         final PackageInfo packageInfo = packageInfo();
 
         Threading.uncaughtExceptionHandler = (thread, throwable) -> {
-            log.info("bitcoinj uncaught exception", throwable);
+            log.info("litecoinj uncaught exception", throwable);
             CrashReporter.saveBackgroundTrace(throwable, packageInfo);
         };
 

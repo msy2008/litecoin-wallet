@@ -142,7 +142,7 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
         if (itemId == R.id.blocks_context_browse) {
             final Uri blockExplorerUri = config.getBlockExplorer();
             log.info("Viewing block {} on {}", blockHash, blockExplorerUri);
-            activity.startExternalDocument(Uri.withAppendedPath(blockExplorerUri, "block/" + blockHash));
+            activity.startExternalDocument(Uri.withAppendedPath(blockExplorerUri, "block.dws?" + blockHash));
             return true;
         } else {
             return false;

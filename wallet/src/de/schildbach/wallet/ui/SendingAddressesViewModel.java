@@ -30,6 +30,7 @@ import de.schildbach.wallet.data.AbstractWalletLiveData;
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.ECKey;
 import org.bitcoinj.core.LegacyAddress;
+import org.bitcoinj.script.Script;
 import org.bitcoinj.wallet.Wallet;
 
 import java.util.HashSet;
@@ -72,7 +73,7 @@ public class SendingAddressesViewModel extends AndroidViewModel {
                 for (final Address address : derivedAddresses)
                     addresses.add(address.toString());
                 for (final ECKey key : randomKeys)
-                    addresses.add(LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key).toString());
+                    addresses.add(LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key, Script.ScriptType.P2PKH).toString());
                 postValue(addresses);
             });
         }

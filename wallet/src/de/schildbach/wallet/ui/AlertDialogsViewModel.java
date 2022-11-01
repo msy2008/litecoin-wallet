@@ -184,11 +184,13 @@ public class AlertDialogsViewModel extends AndroidViewModel {
                     }
                 }
 
+/*
                 // Maybe show insecure device alert.
                 if (Build.VERSION.SECURITY_PATCH.compareToIgnoreCase(Constants.SECURITY_PATCH_INSECURE_BELOW) < 0) {
                     showInsecureDeviceAlertDialog.postValue(new Event<>(Constants.SECURITY_PATCH_INSECURE_BELOW));
                     return;
                 }
+*/
 
                 // Maybe show low storage alert.
                 final Intent stickyIntent = application.registerReceiver(null,

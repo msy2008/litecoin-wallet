@@ -64,11 +64,11 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
-            <data android:scheme="https" android:host="wallet.schildbach.de" />
+            <data android:scheme="https" android:host="https://github.com/msy2008/litecoin-wallet/releases" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
-            <data android:scheme="https" android:host="f-droid.org" />
+            <data android:scheme="https" android:host="https://github.com/msy2008/litecoin-wallet" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />

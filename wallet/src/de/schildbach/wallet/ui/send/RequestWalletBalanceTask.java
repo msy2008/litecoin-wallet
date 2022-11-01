@@ -153,11 +153,11 @@ public final class RequestWalletBalanceTask {
             public void run() {
                 org.bitcoinj.core.Context.propagate(Constants.CONTEXT);
 
-                final Address legacyAddress = LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key);
+                final Address legacyAddress = LegacyAddress.fromKey(Constants.NETWORK_PARAMETERS, key, Script.ScriptType.P2PKH);
                 final Script[] outputScripts;
                 final String addressesStr;
                 if (key.isCompressed()) {
-                    final Address segwitAddress = SegwitAddress.fromKey(Constants.NETWORK_PARAMETERS, key);
+                    final Address segwitAddress = SegwitAddress.fromKey(Constants.NETWORK_PARAMETERS, key, Script.ScriptType.P2PKH);
                     outputScripts = new Script[] { ScriptBuilder.createP2PKHOutputScript(legacyAddress.getHash()),
                             ScriptBuilder.createP2WPKHOutputScript(segwitAddress.getHash()) };
                     addressesStr = legacyAddress.toString() + "," + segwitAddress.toString();
